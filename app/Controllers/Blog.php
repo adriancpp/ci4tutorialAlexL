@@ -14,19 +14,17 @@ class Blog extends BaseController
         $posts = ['Title 1', 'Title 2', 'Title 3'];
         $data['posts'] = $posts;
 
-        echo view('templates/header', $data);
-        echo view('blog');
-        echo view('templates/footer');
+        return view('blog', $data);
     }
 
     public function post(){
+
         $data = [
             'meta_title' => 'Codeigniter 4 Post',
             'title' => 'This is a Post Page',
         ];
-        echo view('templates/header', $data);
-        echo view('single_post');
-        echo view('templates/footer');
+
+        echo view('single_post', $data);
     }
 
 }
