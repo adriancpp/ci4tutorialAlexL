@@ -42,9 +42,9 @@ $routes->setAutoRoute(true);
 //$routes->get('shop/product/(:any)/(:any)', 'Shop::product/$1/$2');
 
 $routes->add('product/(:any)/(:any)', 'Shop::product/$1/$2');
-$routes->add('blog', function(){
-    return "<h2>This is dupa</h2>";
-});
+//$routes->add('blog', function(){
+//    return "<h2>This is dupa</h2>";
+//});
 
 $routes->group('admin', function($routes){
     $routes->add('user', 'Admin\Users::index');

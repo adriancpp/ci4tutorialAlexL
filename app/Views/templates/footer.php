@@ -1,3 +1,3 @@
-<em>&copy; 2021</em>
+<script src="js/scripts.js"></script>
 </body>
 </html>
