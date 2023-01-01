@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\BlogModel;
+
 class Blog extends BaseController
 {
     public function index()
@@ -25,6 +27,21 @@ class Blog extends BaseController
         ];
 
         echo view('single_post', $data);
+    }
+
+    public function new()
+    {
+        $data = [
+            'meta_title' => 'New Post',
+            'title' => 'Create New Post',
+        ];
+
+        if($this->request->getMethod() == 'post') {
+            $model = new BlogModel();
+            $model->save($_POST);
+        }
+
+        return view('new_post', $data);
     }
 
 }
