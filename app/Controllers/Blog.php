@@ -19,12 +19,26 @@ class Blog extends BaseController
         return view('blog', $data);
     }
 
-    public function post(){
+    //get specific post from db
+    public function post($id){
 
-        $data = [
-            'meta_title' => 'Codeigniter 4 Post',
-            'title' => 'This is a Post Page',
-        ];
+        $model = new BlogModel();
+        $post = $model->find($id);
+
+        if($post)
+        {
+            $data = [
+                'meta_title' => $post['post_title'],
+                'title' => $post['post_title'],
+            ];
+        }
+        else
+        {
+            $data = [
+                'meta_title' => 'Post Not Found',
+                'title' => 'Post Not Found',
+            ];
+        }
 
         echo view('single_post', $data);
     }
