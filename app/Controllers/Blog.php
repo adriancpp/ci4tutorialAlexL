@@ -30,6 +30,7 @@ class Blog extends BaseController
             $data = [
                 'meta_title' => $post['post_title'],
                 'title' => $post['post_title'],
+                'post' => $post
             ];
         }
         else
@@ -58,4 +59,15 @@ class Blog extends BaseController
         return view('new_post', $data);
     }
 
+    public function delete($id)
+    {
+        $model = new BlogModel();
+        $post = $model->find($id);
+
+        if($post)
+        {
+            $model->delete($id);
+            return redirect()->to('/blog');
+        }
+    }
 }
