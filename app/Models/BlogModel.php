@@ -17,10 +17,10 @@ class BlogModel extends Model
     protected $allowedFields = ['post_title', 'post_content'];
 
 //    // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
 //    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
+    protected $createdField  = 'post_created_at';
+    protected $updatedField  = 'post_updated_at';
 //    protected $deletedField  = 'deleted_at';
 //
 //    // Validation
