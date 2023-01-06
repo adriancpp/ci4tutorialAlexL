@@ -70,4 +70,26 @@ class Blog extends BaseController
             return redirect()->to('/blog');
         }
     }
+
+    public function edit($id)
+    {
+        $model = new BlogModel();
+        $post = $model->find($id);
+
+        $data = [
+            'meta_title' => $post['post_title'],
+            'title' => $post['post_title']
+        ];
+
+        if($this->request->getMethod() == 'post') {
+            $model = new BlogModel();
+            $_POST['post_id'] = $id;
+            $model->save($_POST);
+            $post = $model->find($id);
+        }
+
+        $data['post'] = $post;
+
+        return view('edit_post', $data);
+    }
 }
