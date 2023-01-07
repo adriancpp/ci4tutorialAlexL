@@ -28,4 +28,27 @@ class BlogModel extends Model
 //    protected $validationMessages   = [];
 //    protected $skipValidation       = false;
 //    protected $cleanValidationRules = true;
+    protected $beforeInsert = ['checkName'];
+    //afterInsert
+    //beforeUpdate
+    //afterUpdate
+    //afterFind
+    //afterDelete
+
+    //for insert password maybe use:   protected $beforeInsert = ['hashPassword'];
+
+    public function checkName(array $data)
+    {
+        $newTitle = $data['data']['post_title'].' Extra Features';
+        $data['data']['post_title'] = $newTitle;
+
+        return $data;
+    }
+
+//    public function hashPassword(array $data)
+//    {
+//        $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);
+//
+//        return $data;
+//    }
 }
